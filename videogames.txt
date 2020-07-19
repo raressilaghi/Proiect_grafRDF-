@@ -1,0 +1,115 @@
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix s: <http://silaghi.ro/myschema#>.
+@prefix schema: <http://schema.org/>.
+
+s:PS4Games
+{
+
+s:NaughtyDog	a schema:Organization; rdfs:label "NaughtyDog";
+		s:hasCreated s:Uncharted4.
+
+s:SledgehammerGames a schema:Organization; rdfs:label "SledgehammerGames";
+		s:hasCreated s:CallOfDutyWWII.
+
+s:Uncharted4 	a schema:VideoGame; rdfs:label "Uncharted4";
+		s:compatibleWith s:PS4; 
+		schema:playMode s:single-player, s:multi-player;
+		s:hasCategory s:Adventure; 
+		s:hasPlayscore [a s:ScoreInfo; s:score 9.43; s:onSite <https://whatoplay.com>];
+		s:hasDescription s:DescriptionUncharted4.
+
+s:CallOfDutyWWII a schema:VideoGame; rdfs:label "CallOfDutyWWII";
+		s:compatibleWith s:PS4, s:XboxOne;
+		schema:playMode s:single-player, s:multi-player, s:co-op;
+		s:hasCategory s:Shooter;
+		s:hasPlayscore [a s:ScoreInfo; s:score 8.04; s:onSite <https://whatoplay.com>];
+		s:hasDescription s:DescriptionCallOfDutyWWII.
+
+
+s:PS4		a s:Platform; rdfs:label "PS4".
+
+s:XboxOne	a s:Platform; rdfs:label "XboxOne".
+
+s:Adventure	a s:Category; rdfs:label "Adventure".
+
+s:Shooter	a s:Category; rdfs:label "Shooter".
+
+s:single-player	a schema:GamePlayMode; rdfs:label "single-player". 
+
+s:multi-player	a schema:GamePlayMode; rdfs:label "multi-player".
+
+s:co-op		a schema:GamePlayMode; rdfs:label "co-op".
+
+s:DescriptionUncharted4 a s:Description; rdfs:label "DescriptionUncharted4".
+
+s:DescriptionCallOfDutyWWII a s:Description; rdfs:label "DescriptionCallOfDutyWWII".
+
+s:treasureHunter rdfs:subClassOf s:gameCharacter; rdfs:label "TreasureHunter".
+
+s:treasureHuntersGroup rdfs:subClassOf s:treasureHunter; rdfs:label "TreasureHuntersGroup".
+
+s:USSoldier rdfs:subClassOf s:gameCharacter; rdfs:label "USSoldier".
+
+s:gameCharacter rdfs:label "gameCharacter".
+
+s:compatibleWith rdfs:domain schema:VideoGame; rdfs:range s:Platform.
+s:hasCategory rdfs:domain schema:VideoGame; rdfs:range s:Category.
+schema:playMode rdfs:domain schema:VideoGame; rdfs:range schema:GamePlayMode.
+s:hasPlayscore rdfs:domain schema:VideoGame; rdfs:range s:ScoreInfo.
+s:hasCreated rdfs:domain schema:Organization; rdfs:range schema:VideoGame.
+s:hasDescription rdfs:domain schema:VideoGame; rdfs:range s:Description.
+s:searchFor rdfs:domain s:treasureHunter; rdfs:range s:PirateTreasure.
+s:locatedOn rdfs:domain s:PirateTreasure; rdfs:range schema:Place.
+s:brotherOf rdfs:domain s:gameCharacter; rdfs:range s:gameCharacter.
+s:rivalOf rdfs:domain s:treasureHunter; rdfs:range s:trasureHunter.
+s:fightIn rdfs:domain s:gameCharacter; rdfs:range schema:Event.
+
+schema:VideoGame a rdf:Class; rdfs:comment "an electronic game that involves human interaction with a user interface".
+s:compatibleWith a rdf:Property; rdfs:comment "represents the relation between a game and a specific platform".
+schema:playMode a rdf:Property; rdfs:comment "Indicates whether this game is multi-player, co-op or single-player".
+schema:GamePlayMode a rdf:Class; rdfs:comment "Indicates whether this game is multi-player, co-op or single-player.".
+s:hasCategory a rdf:Property; rdfs:comment "represents the type of content for a game".
+s:hasPlayscore a rdf:Property; rdfs:comment "represents the relation between a game and its score".
+s:hasDescription a rdf:Property; rdfs:comment "represents the relation between a game and its description".
+s:ScoreInfo a rdf:Class; rdfs:comment "represents the set of informations related to videogames scores".
+s:Platform a rdf:Class; rdfs:comment "represents the set of all platforms for videogames".
+s:Description a rdf:Class; rdfs:comment "represents the description for a game".
+schema:Organization a rdf:Class; rdfs:comment "An organization such as a school, NGO, corporation".
+s:hasCreated a rdf:Property; rdfs:comment "represents the relation between an organisation and a videogame".
+s:Category a rdf:Class; rdfs:comment "represents a category for the item".
+s:treasureHuntersGrup a rdf:Class; rdfs:comment "represents a grup of treasureHunters".
+s:searchFor a rdf:Property; rdfs:comment "represents the action of searching for stg".
+s:PirateTreasure a rdf:Class; rdfs:comment "represents the treasure of a pirate".
+s:locatedOn a rdf:Property; rdfs:comment "represents the relation between a thing and a place".
+schema:Place a rdf:Class; rdfs:comment "entities that have a somewhat fixed, physical extension".
+s:brotherOf a rdf:Property; rdfs:comment "represents the relation between two gameCharacters".
+s:rivalOf a rdf:Property; rdfs:comment "represents the relation between two gameCharacters which are rivales".
+s:treasureHunter a rdf:Class; rdfs:comment "represents a category of gamecharacters".
+s:USSoldeir a rdf:Class; rdfs:comment "represents a category of gamecharacters".
+s:gameCharacter a rdf:Class; rdfs:comment "represents a character from a videogame".
+s:fightIn a rdf:Property; rdfs:comment "represents the relation between a person and an event relatet to war".
+schema:Event a rdf:Class; rdfs:comment "An event happening at a certain time and location".
+
+
+}
+
+s:DescriptionUncharted4
+{
+	[a s:treasureHuntersGroup; rdfs:member s:NathanDrake, s:Samuel, s:Sullivan] s:searchFor s:HanryAveneyTreasure; s:rivalOf [a s:treasureHunter; s:searchFor s:HanryAveneyTreasure;].
+	s:HanryAveneyTreasure s:locatedOn s:Libertalia; a s:PirateTreasure; rdfs:label "HATreasure".
+	s:Libertalia a schema:Place; rdfs:label "Libertalia".
+	s:NathanDrake s:brotherOf s:Samuel;
+		a s:treasureHunter; rdfs:label "NathanDrake".
+	s:Samuel a s:treasureHunter; rdfs:label "Samuel".
+	s:Sullivan a s:treasureHunter; rdfs:label "Sullivan".
+}
+
+s:DescriptionCallOfDutyWWII
+{
+	s:RonaldDaniels s:fightIn s:BattleOfNormandy; a s:USSoldier; rdfs:label "RonaldDaniels".
+	s:BattleOfNormandy a schema:Event; rdfs:label "BattleOfNormandy".
+		
+}
+

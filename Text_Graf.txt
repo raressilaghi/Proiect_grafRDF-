@@ -1,0 +1,11 @@
+NaughtyDog si SledgehammerGames sunt doua compani care produc jocuri video pentru console.
+NaughtyDog a produs jocul Uncharted4, care este compatibil doar pe PS4.
+SledgehammerGames a produs jocul CallOfDutyWWII, care este compatibil atat pe PS4 cat si pe XboxOne.
+Uncharted4 este un joc din categoria aventura, care are ca moduri de joc, modurile: single-player si multi-player. Jocul are nota 9.43 conform site-ului https://whatoplay.com.
+CallOfDutyWWII este un joc din categoria shooter, care are ca moduri de joc, modurile: single-player, multi-player si co-op. Jocul are scorul 8.04 pe site-ul https://whatoplay.com.
+Jocurile Uncharted4 si CallOfDutyWWII au fiecare cate o descriere.
+In Uncharted4 este prezent un grup de caractere format din Nathan Drake, fratele sau Samuel si Sullivan, care sunt cautatori de comori. 
+Ei pornesc in cautarea comori piratului Henrey Avery. Comoara, care se afla pe insula Libertalia.
+Acestia au ca rival un alt cautator de comori care cauta si el comoara.
+In CallOfDutyWWII este prezent caracterul Ronald Daniels. 
+El este un soldat american care lupta in batalia din Normandia.
